@@ -13,13 +13,12 @@
         :root {
             --bg: #030303;
             --surface: #0a0a0a;
-            --surface-highlight: #141414;
-            --border: #222;
-            --border-hover: #444;
+            --surface-highlight: #121212;
+            --border: #262626;
+            --border-hover: #404040;
             --text-main: #ededed;
             --text-muted: #888;
             --primary: #ffffff;
-            --accent-glow: rgba(255, 255, 255, 0.15);
             --font-sans: 'Inter', -apple-system, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
@@ -31,7 +30,7 @@
             color: var(--text-main);
             font-family: var(--font-sans);
             line-height: 1.6;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Empêche le scroll horizontal */
             -webkit-font-smoothing: antialiased;
         }
 
@@ -40,7 +39,7 @@
 
         /* --- UTILS --- */
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -49,17 +48,18 @@
             display: inline-flex;
             align-items: center;
             padding: 4px 12px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
             border-radius: 99px;
             font-size: 12px;
             font-weight: 500;
             color: var(--text-muted);
             margin-bottom: 24px;
+            backdrop-filter: blur(5px);
         }
 
         .gradient-text {
-            background: linear-gradient(to right, #fff, #888);
+            background: linear-gradient(to bottom right, #fff 30%, #666 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -67,12 +67,12 @@
         /* --- BACKGROUND FX --- */
         .glow-bg {
             position: fixed;
-            top: -20%;
+            top: -300px;
             left: 50%;
             transform: translateX(-50%);
-            width: 1000px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 70%);
+            width: 100vw;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0) 60%);
             z-index: -1;
             pointer-events: none;
         }
@@ -82,213 +82,148 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 0;
+            padding: 16px 0;
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.03);
+            background: rgba(3,3,3,0.7);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             z-index: 100;
         }
 
-        .nav-content {
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 600; font-size: 16px; display: flex; align-items: center; gap: 10px; }
+        .logo img { width: 24px; height: 24px; border-radius: 4px; }
+        .nav-links { display: flex; gap: 28px; font-size: 13px; color: var(--text-muted); }
+        .nav-links a:hover { color: var(--text-main); }
+        .btn-sm { padding: 6px 14px; background: var(--primary); color: #000; border-radius: 6px; font-size: 12px; font-weight: 600; }
+
+        /* --- HERO --- */
+        header { padding: 160px 0 80px; text-align: center; }
+        h1 { font-size: 56px; font-weight: 600; letter-spacing: -2px; line-height: 1.1; margin-bottom: 20px; }
+        .subtitle { font-size: 17px; color: var(--text-muted); max-width: 550px; margin: 0 auto 40px; }
+
+        .cta-group { display: flex; justify-content: center; gap: 12px; }
+        .btn-primary { padding: 12px 28px; background: var(--primary); color: #000; border-radius: 8px; font-weight: 600; font-size: 14px; }
+        .btn-primary:hover { opacity: 0.9; }
+        .btn-secondary { padding: 12px 28px; background: rgba(255,255,255,0.03); color: #fff; border-radius: 8px; font-weight: 500; font-size: 14px; border: 1px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--border-hover); background: rgba(255,255,255,0.06); }
+
+        /* --- MARQUEE (New Feature 1) --- */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: rgba(255,255,255,0.01);
+            position: relative;
+        }
+        
+        /* Fade effect on sides */
+        .marquee-container::before, .marquee-container::after {
+            content: "";
+            position: absolute;
+            top: 0; width: 150px; height: 100%;
+            z-index: 2;
+        }
+        .marquee-container::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+        .marquee-container::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+
+        .marquee-track {
+            display: flex;
+            gap: 40px;
+            width: max-content;
+            animation: scroll 30s linear infinite;
+        }
+
+        .game-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .game-dot { width: 6px; height: 6px; background: #333; border-radius: 50%; }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 20px)); }
+        }
+
+        /* --- FEATURES --- */
+        .features { padding: 100px 0; }
+        .section-header { margin-bottom: 60px; }
+        .section-header h2 { font-size: 28px; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 10px; }
+        .section-header p { color: var(--text-muted); font-size: 15px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .card:hover { border-color: var(--border-hover); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+        .card-icon { width: 36px; height: 36px; background: #1a1a1a; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 16px; border: 1px solid var(--border); }
+        .card h3 { font-size: 16px; margin-bottom: 8px; font-weight: 500; color: #fff; }
+        .card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+        /* --- CODE PREVIEW --- */
+        .preview-section { padding: 80px 0; border-top: 1px solid var(--border); background: linear-gradient(180deg, var(--bg), #050505); }
+        .terminal-window {
+            background: #090909; border: 1px solid var(--border); border-radius: 10px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6); max-width: 700px; margin: 0 auto;
+        }
+        .terminal-header { padding: 10px 14px; border-bottom: 1px solid var(--border); display: flex; gap: 6px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #333; }
+        .terminal-body { padding: 20px; font-family: var(--font-mono); font-size: 12px; color: #a0a0a0; line-height: 1.5; }
+        .c-kw { color: #569cd6; } .c-fn { color: #dcdcaa; } .c-str { color: #ce9178; } .c-num { color: #b5cea8; }
+
+        /* --- FAQ (New Feature 2) --- */
+        .faq-section { padding: 100px 0; border-top: 1px solid var(--border); }
+        .faq-grid { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+        
+        details {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        details:hover { border-color: var(--border-hover); }
+        details[open] { background: var(--surface-highlight); }
+        
+        summary {
+            padding: 16px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        .logo { font-weight: 600; font-size: 18px; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
-        .logo img { width: 24px; height: 24px; border-radius: 6px; }
-
-        .nav-links { display: flex; gap: 32px; font-size: 14px; color: var(--text-muted); }
-        .nav-links a:hover { color: var(--text-main); }
-
-        .btn-sm {
-            padding: 8px 16px;
-            background: var(--primary);
-            color: #000;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-        }
-        .btn-sm:hover { opacity: 0.9; }
-
-        /* --- HERO --- */
-        header {
-            padding: 180px 0 100px;
-            text-align: center;
-            position: relative;
-        }
-
-        h1 {
-            font-size: 64px;
-            font-weight: 600;
-            letter-spacing: -2px;
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-
-        .subtitle {
-            font-size: 18px;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 48px;
-            font-weight: 400;
-        }
-
-        .cta-group {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-        }
-
-        .btn-primary {
-            padding: 14px 32px;
-            background: var(--primary);
-            color: #000;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            border: 1px solid var(--primary);
-        }
-
-        .btn-secondary {
-            padding: 14px 32px;
-            background: rgba(255,255,255,0.05);
-            color: #fff;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 15px;
-            border: 1px solid var(--border);
-        }
-        .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--border-hover); }
-
-        /* --- STATS / SOCIAL --- */
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-top: 60px;
-            opacity: 0.6;
-            filter: grayscale(1);
-            transition: 0.3s;
-        }
-        .stats-bar:hover { filter: grayscale(0); opacity: 1; }
-
-        /* --- FEATURES GRID --- */
-        .features { padding: 100px 0; border-top: 1px solid var(--border); }
-        .section-header { margin-bottom: 60px; }
-        .section-header h2 { font-size: 32px; font-weight: 600; letter-spacing: -1px; margin-bottom: 12px; }
-        .section-header p { color: var(--text-muted); }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 32px;
-            border-radius: 12px;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-        }
-
-        .card-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-
-        .card h3 { font-size: 18px; margin-bottom: 10px; font-weight: 500; }
-        .card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
-
-        /* --- CODE PREVIEW (TERMINAL) --- */
-        .preview-section {
-            padding: 80px 0;
-            background: linear-gradient(180deg, var(--bg) 0%, #080808 100%);
-            border-top: 1px solid var(--border);
-        }
-
-        .terminal-window {
-            background: #0d0d0d;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .terminal-header {
-            background: rgba(255,255,255,0.03);
-            padding: 12px 16px;
-            display: flex;
-            gap: 8px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
-        .red { background: #ff5f56; }
-        .yellow { background: #ffbd2e; }
-        .green { background: #27c93f; }
-
-        .terminal-body {
-            padding: 24px;
-            font-family: var(--font-mono);
-            font-size: 13px;
-            color: #a9b7c6;
-            overflow-x: auto;
-        }
-
-        .code-keyword { color: #cc7832; }
-        .code-func { color: #ffc66d; }
-        .code-str { color: #6a8759; }
-        .code-bool { color: #9876aa; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: "+"; font-size: 16px; color: var(--text-muted); font-weight: 300; }
+        details[open] summary::after { content: "-"; }
+        
+        .faq-content { padding: 0 20px 20px; font-size: 13px; color: var(--text-muted); line-height: 1.6; animation: slideDown 0.2s ease-out; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
         /* --- DOWNLOAD --- */
         .download-box {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 48px;
-            text-align: center;
-            margin: 100px auto;
-            max-width: 600px;
+            text-align: center; margin: 80px auto 40px; padding: 40px;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.03), transparent 70%);
+            border: 1px solid var(--border); border-radius: 12px; max-width: 500px;
         }
-
-        .meta-info {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-top: 24px;
-            font-size: 12px;
-            color: var(--text-muted);
-            font-family: var(--font-mono);
-        }
-
-        .virus-check { color: #27c93f; display: flex; align-items: center; gap: 6px; }
 
         /* --- FOOTER --- */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 60px 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-        
-        /* --- ANIMATIONS --- */
-        .fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        footer { border-top: 1px solid var(--border); padding: 40px 0; font-size: 12px; color: #555; text-align: center; }
+        .status-dot { display: inline-block; width: 6px; height: 6px; background: #0f0; border-radius: 50%; box-shadow: 0 0 8px #0f0; margin-right: 6px; }
+
+        /* Animation class */
+        .fade-in { opacity: 0; transform: translateY(15px); transition: 0.6s ease-out; }
         .visible { opacity: 1; transform: translateY(0); }
 
     </style>
@@ -304,61 +239,65 @@
                 MacroLoaderX
             </a>
             <div class="nav-links">
-                <a href="#features">Fonctionnalités</a>
-                <a href="#how-to">Guide</a>
+                <a href="#features">Features</a>
+                <a href="#faq">Questions</a>
                 <a href="https://discord.gg/macroloaderx" target="_blank">Discord</a>
             </div>
-            <a href="#download" class="btn-sm">Télécharger v2.4</a>
+            <a href="#download" class="btn-sm">Télécharger</a>
         </div>
     </nav>
 
     <header class="container fade-in">
-        <div class="badge">Safe & External Automation</div>
-        <h1>
-            L'automatisation Roblox,<br>
-            <span class="gradient-text">enfin moderne.</span>
-        </h1>
-        <p class="subtitle">
-            Automatisez vos actions répétitives sans risque. MacroLoaderX simule les périphériques externes, ne touche pas à la mémoire du jeu et reste indétectable.
-        </p>
-        
+        <div class="badge">Version 2.4.0 Live</div>
+        <h1>L'automatisation Roblox <br><span class="gradient-text">simplifiée.</span></h1>
+        <p class="subtitle">Automatisez vos actions répétitives sans injecteur. 100% externe, sûr, et conçu pour la performance.</p>
         <div class="cta-group">
             <a href="#download" class="btn-primary">Télécharger Gratuitement</a>
-            <a href="https://github.com/n0lex9999/MacroLoaderX" target="_blank" class="btn-secondary">GitHub</a>
-        </div>
-
-        <div class="stats-bar">
-            <img src="https://img.shields.io/github/stars/MacroLoaderX/MacroLoaderX?style=social&color=000" alt="Stars">
-            <img src="https://img.shields.io/github/v/release/MacroLoaderX/MacroLoaderX?color=333&label=Release&style=flat-square" alt="Version">
-            <img src="https://img.shields.io/discord/123456789012345678?label=Discord&color=333&style=flat-square" alt="Discord">
+            <a href="https://github.com/n0lex9999/MacroLoaderX" target="_blank" class="btn-secondary">Voir sur GitHub</a>
         </div>
     </header>
 
+    <div class="marquee-container fade-in">
+        <div class="marquee-track">
+            <div class="game-tag"><div class="game-dot"></div>Blox Fruits</div>
+            <div class="game-tag"><div class="game-dot"></div>Pet Simulator 99</div>
+            <div class="game-tag"><div class="game-dot"></div>Da Hood</div>
+            <div class="game-tag"><div class="game-dot"></div>Adopt Me</div>
+            <div class="game-tag"><div class="game-dot"></div>Anime Defenders</div>
+            <div class="game-tag"><div class="game-dot"></div>Brookhaven</div>
+            <div class="game-tag"><div class="game-dot"></div>BedWars</div>
+            <div class="game-tag"><div class="game-dot"></div>Blade Ball</div>
+            <div class="game-tag"><div class="game-dot"></div>Blox Fruits</div>
+            <div class="game-tag"><div class="game-dot"></div>Pet Simulator 99</div>
+            <div class="game-tag"><div class="game-dot"></div>Da Hood</div>
+            <div class="game-tag"><div class="game-dot"></div>Adopt Me</div>
+            <div class="game-tag"><div class="game-dot"></div>Anime Defenders</div>
+            <div class="game-tag"><div class="game-dot"></div>Brookhaven</div>
+            <div class="game-tag"><div class="game-dot"></div>BedWars</div>
+            <div class="game-tag"><div class="game-dot"></div>Blade Ball</div>
+        </div>
+    </div>
+
     <section id="features" class="container features fade-in">
         <div class="section-header">
-            <h2>Conçu pour la performance</h2>
-            <p>Une suite d'outils complète dans une interface minimaliste.</p>
+            <h2>L'avantage technologique</h2>
+            <p>Pourquoi utiliser MacroLoaderX plutôt qu'un autoclicker basique.</p>
         </div>
         <div class="grid">
             <div class="card">
-                <div class="card-icon">⚡</div>
+                <div class="card-icon">🔒</div>
                 <h3>100% Externe</h3>
-                <p>Contrairement aux executors, MacroLoaderX n'injecte rien dans Roblox. Il simule simplement votre clavier et souris.</p>
+                <p>Contrairement aux executeurs, MacroLoaderX n'injecte rien dans Roblox. Il simule simplement votre clavier et souris.</p>
             </div>
             <div class="card">
-                <div class="card-icon">📝</div>
-                <h3>Scripting Lua</h3>
-                <p>Écrivez vos propres macros en Lua ou importez des scripts existants. Flexibilité totale pour vos routines.</p>
+                <div class="card-icon">⚡</div>
+                <h3>Moteur Lua Léger</h3>
+                <p>Pas de bloatware. Un moteur d'exécution optimisé qui utilise moins de 1% de votre CPU en arrière-plan.</p>
             </div>
             <div class="card">
-                <div class="card-icon">🌐</div>
-                <h3>Communauté</h3>
-                <p>Accédez à une bibliothèque de +300 macros vérifiées (farming, mouvements, anti-afk) prêtes à l'emploi.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">👁️</div>
-                <h3>Overlay Moderne</h3>
-                <p>Une interface graphique claire qui fonctionne par-dessus vos jeux, même en mode plein écran fenêtré.</p>
+                <div class="card-icon">📂</div>
+                <h3>Bibliothèque Cloud</h3>
+                <p>Téléchargez des macros créées par la communauté directement depuis l'interface. Plus de 300 scripts disponibles.</p>
             </div>
         </div>
     </section>
@@ -366,71 +305,72 @@
     <section class="preview-section fade-in">
         <div class="container">
             <div class="section-header" style="text-align: center;">
-                <h2>Simplicité du code</h2>
-                <p>Un moteur Lua puissant pour des tâches complexes.</p>
+                <h2>Codez ou importez</h2>
+                <p>Compatible avec la syntaxe Lua standard.</p>
             </div>
-            
             <div class="terminal-window">
                 <div class="terminal-header">
-                    <div class="dot red"></div>
-                    <div class="dot yellow"></div>
-                    <div class="dot green"></div>
+                    <div class="dot" style="background:#ff5f56"></div>
+                    <div class="dot" style="background:#ffbd2e"></div>
+                    <div class="dot" style="background:#27c93f"></div>
                 </div>
                 <div class="terminal-body">
-                    <span class="code-keyword">while</span> <span class="code-bool">true</span> <span class="code-keyword">do</span><br>
-                    &nbsp;&nbsp;<span class="code-muted">-- Anti-AFK simple example</span><br>
-                    &nbsp;&nbsp;<span class="code-keyword">local</span> player = game.Players.LocalPlayer<br>
-                    &nbsp;&nbsp;player.Character.Humanoid.Jump = <span class="code-bool">true</span><br>
-                    <br>
-                    &nbsp;&nbsp;<span class="code-func">print</span>(<span class="code-str">"Saut effectué - "</span> .. os.time())<br>
-                    &nbsp;&nbsp;<span class="code-func">wait</span>(2)<br>
-                    <span class="code-keyword">end</span>
+                    <span class="c-kw">local</span> Player = game.Players.LocalPlayer<br>
+                    <span class="c-kw">local</span> Toggle = <span class="c-kw">true</span><br><br>
+                    <span class="c-kw">while</span> Toggle <span class="c-kw">do</span><br>
+                    &nbsp;&nbsp;<span class="c-kw">if</span> Player.Character <span class="c-kw">then</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;input.press(<span class="c-str">"Space"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="c-str">"Auto-Jump exécuté"</span>)<br>
+                    &nbsp;&nbsp;<span class="c-kw">end</span><br>
+                    &nbsp;&nbsp;wait(<span class="c-num">2.5</span>)<br>
+                    <span class="c-kw">end</span>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="faq" class="container faq-section fade-in">
+        <div class="section-header" style="text-align:center">
+            <h2>Questions fréquentes</h2>
+        </div>
+        <div class="faq-grid">
+            <details>
+                <summary>Est-ce que je peux être banni ?</summary>
+                <div class="faq-content">Le risque est minime car MacroLoaderX n'injecte aucun code dans le jeu (contrairement à Synapse ou Krnl). Il agit comme un clavier virtuel. Cependant, utilisez-le avec bon sens.</div>
+            </details>
+            <details>
+                <summary>Comment charger un script ?</summary>
+                <div class="faq-content">Ouvrez le logiciel, cliquez sur "Load File" et sélectionnez votre fichier .lua. Vous pouvez aussi coller le code directement dans l'éditeur.</div>
+            </details>
+            <details>
+                <summary>Est-ce compatible Windows 11 ?</summary>
+                <div class="faq-content">Oui, le logiciel est optimisé pour Windows 10 et Windows 11. Une version MacOS est prévue pour 2027.</div>
+            </details>
         </div>
     </section>
 
     <section id="download" class="container fade-in">
         <div class="download-box">
-            <h2>Prêt à automatiser ?</h2>
-            <p style="color: var(--text-muted); margin: 16px 0 32px;">Rejoignez des milliers de joueurs qui optimisent leur temps.</p>
-            
-            <a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/untagged-e76d7861168038356685/MacroLoaderX.zip" class="btn-primary">
-                Télécharger pour Windows
-            </a>
-
-            <div class="meta-info">
-                <span>v2.4.0</span>
-                <span>•</span>
-                <span>Win 10/11</span>
-                <span>•</span>
-                <span class="virus-check">🛡️ 0/72 VirusTotal</span>
-            </div>
+            <h2>Commencer maintenant</h2>
+            <p style="color: var(--text-muted); margin: 10px 0 25px; font-size:14px;">Rejoignez les utilisateurs intelligents.</p>
+            <a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/untagged-e76d7861168038356685/MacroLoaderX.zip" class="btn-primary">Télécharger v2.4.0</a>
         </div>
     </section>
 
     <footer class="container">
-        <p>&copy; 2026 MacroLoaderX. Non affilié à Roblox Corporation.</p>
-        <p style="margin-top: 8px; opacity: 0.5;">Fait avec soin pour la communauté.</p>
+        <p>&copy; 2026 MacroLoaderX. <span style="opacity:0.3">|</span> <span class="status-dot"></span>Tous les systèmes opérationnels</p>
     </footer>
 
     <script>
-        // Simple scroll reveal effect
-        const observerOptions = {
-            threshold: 0.1
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 
 </body>
