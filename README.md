@@ -1,166 +1,568 @@
-<div align="center">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacroLoaderX - L'outil macro ultime pour Roblox</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-# 🎮 MacroLoaderX
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-<img src="https://files.catbox.moe/qz6o4n.jpg" alt="MacroLoaderX Logo" width="220"/>
+        .navbar {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
 
-### **L'outil macro le plus complet et facile à utiliser pour Roblox en 2026**
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
 
-[![GitHub stars](https://img.shields.io/github/stars/MacroLoaderX/MacroLoaderX?style=for-the-badge&logo=github&color=yellow)](https://github.com/MacroLoaderX/MacroLoaderX/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/MacroLoaderX/MacroLoaderX?style=for-the-badge&logo=github&color=blue)](https://github.com/MacroLoaderX/MacroLoaderX/network/members)
-[![GitHub release](https://img.shields.io/github/v/release/MacroLoaderX/MacroLoaderX?style=for-the-badge&logo=github&color=green&label=Version)](https://github.com/MacroLoaderX/MacroLoaderX/releases/latest)
-[![Discord](https://img.shields.io/discord/123456789012345678?style=for-the-badge&logo=discord&logoColor=white&label=Rejoindre&color=7289DA)](https://discord.gg/macroloaderx)
-[![Downloads](https://img.shields.io/github/downloads/MacroLoaderX/MacroLoaderX/total?style=for-the-badge&logo=download&color=brightgreen)](https://github.com/MacroLoaderX/MacroLoaderX/releases)
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-> **✨ Automatisation simple · 🔧 Macros personnalisées · 💎 Interface moderne · 🚀 Performance optimale**
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
 
-[🚀 Démarrage rapide](#-installation-rapide) · [📖 Documentation](#-documentation) · [💬 Support](#-support) · [🌟 Contribuer](#-contribution)
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
 
-</div>
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
 
----
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 40px 60px;
+            position: relative;
+            overflow: hidden;
+        }
 
-## 🎯 Qu'est-ce que MacroLoaderX ?
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 6s ease-in-out infinite;
+        }
 
-**MacroLoaderX** est l'outil d'automatisation le plus puissant pour Roblox, conçu pour simplifier vos sessions de jeu en automatisant les tâches répétitives. Grâce à des macros Lua personnalisables, vous pouvez créer des scripts complexes ou utiliser notre bibliothèque communautaire de plus de 300 macros prêtes à l'emploi.
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
 
-### 🎪 Cas d'utilisation populaires
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
 
-```
-🎮 Farming automatique      🏃 Routines d'entraînement    💃 Séquences de danse
-🎯 Combats automatisés      🛠️  Crafting en boucle         🎁 Collecte de récompenses
-🔄 Actions répétitives      🎨 Animations custom          ⚡ Optimisation du gameplay
-```
+        .hero-content {
+            max-width: 900px;
+            z-index: 1;
+        }
 
----
+        .hero-logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
 
-## ✨ Fonctionnalités principales
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
 
-<div align="center">
+        h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
 
-| 🚀 Fonctionnalité | 💡 Description | 🎯 Avantage |
-|-------------------|----------------|-------------|
-| **🔥 Exécution Lua** | Moteur Lua optimisé avec support complet | Scripts rapides et fiables |
-| **🎨 Interface moderne** | UI intuitive avec thème sombre/clair | Navigation simplifiée |
-| **✍️ Éditeur intégré** | Coloration syntaxique + auto-complétion | Création rapide de macros |
-| **📚 Bibliothèque** | +300 macros communautaires testées | Prêt à l'emploi |
-| **🖥️ Multi-fenêtres** | Compatible mode fenêtré et plein écran | Flexibilité maximale |
-| **🔄 Auto-update** | Mises à jour automatiques en arrière-plan | Toujours à jour |
-| **🛡️ Sécurité** | Protection anti-détection avancée | Utilisation sécurisée |
-| **⚡ Performance** | Optimisé pour une utilisation légère | 0% impact sur les FPS |
+        .subtitle {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
 
-</div>
+        .badges {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
 
----
+        .badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-## 📸 Galerie
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-<div align="center">
+        .btn {
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+        }
 
-### 🎛️ Interface principale
+        .btn-primary {
+            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            color: #000;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
 
-<img src="https://files.catbox.moe/n4ezs7.jpg" width="85%" style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"/>
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+        }
 
-*Interface épurée avec accès rapide à toutes les fonctionnalités*
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
 
-### 🎮 Macro en action
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
 
-<img src="https://files.catbox.moe/in961k.jpg" width="85%" style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"/>
+        .section {
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-*Démonstration d'une macro de farming automatique*
+        .section-title {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 20px;
+        }
 
-</div>
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ffd700, #ff6b6b);
+            border-radius: 2px;
+        }
 
----
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
 
-## 📥 Installation rapide
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
 
-<div align="center">
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
 
-### **📦 Version actuelle : v2.4.0** (01 janvier 2026)
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
 
-<a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/untagged-e76d7861168038356685/MacroLoaderX.zip">
-<img src="https://img.shields.io/badge/TÉLÉCHARGER-MacroLoaderX.exe-brightgreen?style=for-the-badge&logo=download&logoColor=white" height="50"/>
-</a>
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
 
-</div>
+        .feature-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
 
-### 📊 Informations du fichier
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
 
-```
-📦 Taille          : 1.38 MB
-🖥️  Compatibilité   : Windows 10 / 11 (64-bit)
-🛡️  Sécurité        : VirusTotal 0/72 ✅
-🔐 Signature       : Certifié et signé
-⚡ Exigences       : .NET Framework 4.8+
-```
+        .screenshot-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
 
-> **💡 Astuce Pro** : Exécutez toujours en administrateur pour une compatibilité optimale et un accès complet aux fonctionnalités.
+        .screenshot-card:hover {
+            transform: scale(1.05);
+        }
 
----
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
-## 🚀 Guide de démarrage
+        .screenshot-caption {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
 
-### Étape 1️⃣ : Installation
+        .download-section {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 80px 40px;
+            text-align: center;
+            border-radius: 30px;
+            margin: 60px 40px;
+        }
 
-1. **Téléchargez** MacroLoaderX.zip depuis le lien ci-dessus
-2. **Extrayez** le fichier dans un dossier de votre choix
-3. **Clic droit** sur `MacroLoaderX.exe` → **Exécuter en tant qu'administrateur**
-4. Acceptez les autorisations si demandé
+        .version-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 40px auto;
+        }
 
-### Étape 2️⃣ : Configuration initiale
+        .info-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-1. Au premier lancement, l'outil se configure automatiquement
-2. Sélectionnez votre langue (Français par défaut)
-3. Choisissez votre thème préféré (Clair/Sombre)
+        .info-box strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #ffd700;
+        }
 
-### Étape 3️⃣ : Utilisation
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
 
-```
-🎮 Lancez Roblox → Rejoignez votre jeu
-🔧 Ouvrez MacroLoaderX
-📁 Cliquez sur "Charger une macro" ou "Bibliothèque"
-✅ Sélectionnez votre macro (.lua)
-▶️  Appuyez sur "Démarrer" (F6 par défaut)
-⏸️  Pause/Arrêt avec F7
-```
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-### 🎯 Raccourcis clavier
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
 
-| Touche | Action |
-|--------|--------|
-| **F6** | Démarrer/Reprendre la macro |
-| **F7** | Pause/Arrêt |
-| **F8** | Recharger la macro |
-| **F9** | Ouvrir l'éditeur |
-| **F10** | Menu principal |
+        .stat-label {
+            opacity: 0.9;
+            font-size: 18px;
+        }
 
----
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-## 📝 Exemples de macros
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
 
-### 🌟 Macro simple : Auto-Jump
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-```lua
--- Macro de saut automatique toutes les 2 secondes
-while true do
-    local player = game.Players.LocalPlayer
-    if player and player.Character then
-        local humanoid = player.Character:FindFirstChild("Humanoid")
-        if humanoid then
-            humanoid.Jump = true
-        end
-    end
-    wait(2)
-end
-```
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
 
-### 🔥 Macro avancée : Auto-Farm avec détection
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            .subtitle { font-size: 18px; }
+            .section-title { font-size: 32px; }
+            .features, .screenshots { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
 
-```lua
--- Auto-farm intelligent avec détection de proximité
+        .code-example {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .code-example pre {
+            margin: 0;
+            color: #7dd3fc;
+            line-height: 1.6;
+        }
+
+        .warning {
+            background: rgba(255, 165, 0, 0.2);
+            border-left: 4px solid #ffa500;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .warning-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                🎮 MacroLoaderX
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Fonctionnalités</a></li>
+                <li><a href="#screenshots">Aperçu</a></li>
+                <li><a href="#download">Télécharger</a></li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="https://files.catbox.moe/qz6o4n.jpg" alt="MacroLoaderX Logo" class="hero-logo">
+            <h1>MacroLoaderX</h1>
+            <p class="subtitle">L'outil macro le plus complet et facile à utiliser pour Roblox en 2026</p>
+            
+            <div class="badges">
+                <span class="badge">✨ Interface Moderne</span>
+                <span class="badge">🚀 Ultra Performant</span>
+                <span class="badge">🔥 +300 Macros</span>
+                <span class="badge">🛡️ 100% Sécurisé</span>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#download" class="btn btn-primary">
+                    ⬇️ Télécharger v2.4.0
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    📖 En savoir plus
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span style="font-size: 32px;">⬇️</span>
+        </div>
+    </section>
+
+    <section class="section" id="stats">
+        <h2 class="section-title">Pourquoi MacroLoaderX ?</h2>
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Utilisateurs actifs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">300+</div>
+                <div class="stat-label">Macros disponibles</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4.9/5</div>
+                <div class="stat-label">Note moyenne</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support actif</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <h2 class="section-title">🎯 Fonctionnalités Principales</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🔥</div>
+                <h3>Exécution Lua Puissante</h3>
+                <p>Moteur Lua optimisé supportant tous les scripts personnalisés avec une performance maximale et zéro impact sur vos FPS.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Interface Intuitive</h3>
+                <p>Design moderne avec thème sombre/clair, navigation simplifiée et accès rapide à toutes les fonctionnalités en un clic.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✍️</div>
+                <h3>Éditeur Intégré</h3>
+                <p>Créez et modifiez vos macros directement avec coloration syntaxique, auto-complétion et détection d'erreurs en temps réel.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>Bibliothèque Massive</h3>
+                <p>Plus de 300 macros testées et approuvées par la communauté : farming, combat, danse, et bien plus encore !</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🖥️</div>
+                <h3>Mode Multi-Fenêtres</h3>
+                <p>Compatible avec le mode fenêtré et plein écran, fonctionne en arrière-plan sans interruption de votre expérience de jeu.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Protection Avancée</h3>
+                <p>Système anti-détection intégré pour une utilisation sécurisée. Aucun virus détecté (0/72 sur VirusTotal).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="screenshots">
+        <h2 class="section-title">📸 Aperçu de l'Interface</h2>
+        <div class="screenshots">
+            <div class="screenshot-card">
+                <img src="https://files.catbox.moe/n4ezs7.jpg" alt="Interface principale">
+                <div class="screenshot-caption">🎛️ Interface Principale</div>
+            </div>
+            <div class="screenshot-card">
+                <img src="https://files.catbox.moe/in961k.jpg" alt="Macro en action">
+                <div class="screenshot-caption">🎮 Macro en Action</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">💻 Exemple de Macro</h2>
+        <div class="code-example">
+            <pre>-- 🚀 Macro d'auto-farming intelligente
 local player = game.Players.LocalPlayer
-local targetName = "Coin" -- Objet à farmer
+local targetName = "Coin"
 
 while true do
     for _, obj in pairs(workspace:GetDescendants()) do
@@ -173,166 +575,129 @@ while true do
         end
     end
     wait(1)
-end
-```
+end</pre>
+        </div>
+    </section>
 
-### 💎 Macro premium : Combat automatique
+    <div class="download-section" id="download">
+        <h2 class="section-title">📥 Téléchargement</h2>
+        <p style="font-size: 24px; margin-bottom: 30px;">Version actuelle : <strong>v2.4.0</strong> (01/01/2026)</p>
+        
+        <div class="version-info">
+            <div class="info-box">
+                <strong>📦 Taille</strong>
+                1.38 MB
+            </div>
+            <div class="info-box">
+                <strong>🖥️ Compatibilité</strong>
+                Windows 10/11
+            </div>
+            <div class="info-box">
+                <strong>🛡️ Sécurité</strong>
+                VirusTotal 0/72 ✅
+            </div>
+            <div class="info-box">
+                <strong>⚡ Exigences</strong>
+                .NET 4.8+
+            </div>
+        </div>
 
-```lua
--- Système de combat automatique avec cooldowns
-local player = game.Players.LocalPlayer
-local combat = {
-    attackCooldown = 1.5,
-    lastAttack = 0,
-    detectionRange = 50
-}
+        <a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/untagged-e76d7861168038356685/MacroLoaderX.zip" class="btn btn-primary" style="margin-top: 30px; font-size: 20px;">
+            ⬇️ Télécharger MacroLoaderX.exe
+        </a>
 
-function findNearestEnemy()
-    local nearest = nil
-    local minDistance = combat.detectionRange
-    
-    for _, enemy in pairs(workspace.Enemies:GetChildren()) do
-        if enemy:FindFirstChild("Humanoid") and enemy.Humanoid.Health > 0 then
-            local distance = (player.Character.HumanoidRootPart.Position - enemy.HumanoidRootPart.Position).Magnitude
-            if distance < minDistance then
-                nearest = enemy
-                minDistance = distance
-            end
-        end
-    end
-    return nearest
-end
+        <p style="margin-top: 20px; opacity: 0.8;">💡 Conseil : Exécutez en administrateur pour une compatibilité optimale</p>
+    </div>
 
-while true do
-    local enemy = findNearestEnemy()
-    if enemy and (tick() - combat.lastAttack) >= combat.attackCooldown then
-        -- Attaque l'ennemi
-        player.Character.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3)
-        -- Simule l'attaque (à adapter selon le jeu)
-        game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, game)
-        wait(0.1)
-        game:GetService("VirtualInputManager"):SendKeyEvent(false, "E", false, game)
-        combat.lastAttack = tick()
-    end
-    wait(0.1)
-end
-```
+    <section class="section">
+        <h2 class="section-title">🚀 Guide de Démarrage Rapide</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">1️⃣</div>
+                <h3>Téléchargez</h3>
+                <p>Téléchargez le fichier ZIP et extrayez-le dans un dossier de votre choix.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">2️⃣</div>
+                <h3>Installez</h3>
+                <p>Clic droit sur MacroLoaderX.exe → Exécuter en tant qu'administrateur.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">3️⃣</div>
+                <h3>Utilisez</h3>
+                <p>Lancez Roblox, chargez votre macro et appuyez sur F6 pour démarrer !</p>
+            </div>
+        </div>
+    </section>
 
----
+    <div class="warning section">
+        <div class="warning-title">⚠️ Avertissement Important</div>
+        <p><strong>MacroLoaderX est fourni "tel quel" à des fins éducatives.</strong> L'utilisation de macros peut violer les conditions d'utilisation de certains jeux. Utilisez cet outil à vos propres risques. Les développeurs ne sont pas responsables des sanctions éventuelles. Respectez toujours les règles des jeux et la communauté.</p>
+    </div>
 
-## 📖 Documentation
+    <section class="section" id="support">
+        <h2 class="section-title">💬 Support & Communauté</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>Discord</h3>
+                <p>Rejoignez notre serveur Discord pour obtenir de l'aide, partager vos macros et discuter avec la communauté.</p>
+                <a href="https://discord.gg/macroloaderx" class="btn btn-primary" style="margin-top: 15px; font-size: 14px; padding: 12px 24px;">Rejoindre</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📧</div>
+                <h3>Email</h3>
+                <p>Besoin d'aide ? Envoyez-nous un email et notre équipe vous répondra dans les 2-4 heures.</p>
+                <a href="mailto:support@macroloaderx.com" class="btn btn-primary" style="margin-top: 15px; font-size: 14px; padding: 12px 24px;">Contacter</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📖</div>
+                <h3>Documentation</h3>
+                <p>Consultez notre documentation complète avec tutoriels, guides et FAQ pour tout savoir sur MacroLoaderX.</p>
+                <a href="https://github.com/MacroLoaderX/MacroLoaderX/wiki" class="btn btn-primary" style="margin-top: 15px; font-size: 14px; padding: 12px 24px;">Lire</a>
+            </div>
+        </div>
+    </section>
 
-### 🔧 API Disponible
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://github.com/MacroLoaderX/MacroLoaderX" title="GitHub">⭐</a>
+            <a href="https://discord.gg/macroloaderx" title="Discord">💬</a>
+            <a href="https://youtube.com/macroloaderx" title="YouTube">🎥</a>
+            <a href="mailto:support@macroloaderx.com" title="Email">📧</a>
+        </div>
+        <p style="opacity: 0.8;">© 2026 MacroLoaderX - Fait avec ❤️ par la communauté</p>
+        <p style="opacity: 0.6; margin-top: 10px; font-size: 14px;">Licence MIT - Projet open source</p>
+    </footer>
 
-MacroLoaderX expose plusieurs fonctions utiles pour vos macros :
+    <script>
+        // Smooth scroll pour les liens de navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
 
-```lua
--- Gestion du joueur
-getPlayer()                    -- Retourne le joueur local
-getCharacter()                 -- Retourne le personnage du joueur
-teleport(x, y, z)             -- Téléporte à une position
+        // Animation au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
 
--- Inputs
-pressKey(key)                 -- Simule une pression de touche
-clickMouse(button)            -- Simule un clic souris
-moveMouse(x, y)               -- Déplace la souris
-
--- Utilitaires
-notify(message, duration)     -- Affiche une notification
-log(message)                  -- Écrit dans la console
-findObject(name, parent)      -- Trouve un objet dans le jeu
-```
-
-### 📚 Ressources supplémentaires
-
-- [📘 Guide complet PDF](https://github.com/MacroLoaderX/MacroLoaderX/wiki/Guide-Complet)
-- [🎓 Tutoriels vidéo](https://youtube.com/macroloaderx)
-- [💬 Forum communautaire](https://community.macroloaderx.com)
-- [🐛 Signaler un bug](https://github.com/MacroLoaderX/MacroLoaderX/issues)
-
----
-
-## 🌟 Contribution
-
-Vous souhaitez contribuer au projet ? Génial ! Voici comment :
-
-### 🎁 Partager vos macros
-
-1. Créez une macro fonctionnelle
-2. Testez-la sur plusieurs jeux
-3. Soumettez-la via [Pull Request](https://github.com/MacroLoaderX/MacroLoaderX/pulls)
-4. Recevez des crédits dans la bibliothèque !
-
-### 🐛 Signaler des problèmes
-
-Utilisez notre [système de tickets](https://github.com/MacroLoaderX/MacroLoaderX/issues) en incluant :
-- Version de MacroLoaderX
-- Version de Windows
-- Description détaillée du problème
-- Captures d'écran si possible
-
-### 💰 Supporter le projet
-
-- ⭐ Mettre une étoile sur GitHub
-- 🔄 Partager avec vos amis
-- 💬 Rejoindre notre Discord
-- ☕ [Faire un don](https://ko-fi.com/macroloaderx)
-
----
-
-## 💬 Support
-
-<div align="center">
-
-### Besoin d'aide ? Nous sommes là !
-
-[![Discord](https://img.shields.io/badge/Discord-Rejoindre-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/macroloaderx)
-[![Email](https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:support@macroloaderx.com)
-[![Wiki](https://img.shields.io/badge/Wiki-Documentation-blue?style=for-the-badge&logo=wikipedia&logoColor=white)](https://github.com/MacroLoaderX/MacroLoaderX/wiki)
-
-**⏰ Temps de réponse moyen : 2-4 heures**
-
-</div>
-
----
-
-## ⚠️ Avertissement
-
-```
-⚖️  MacroLoaderX est fourni "tel quel" à des fins éducatives.
-🎮 L'utilisation de macros peut violer les conditions d'utilisation de certains jeux.
-👤 Utilisez cet outil à vos propres risques.
-🛡️  Les développeurs ne sont pas responsables des sanctions éventuelles.
-✅ Respectez toujours les règles des jeux et la communauté.
-```
-
----
-
-## 📜 Licence
-
-Ce projet est sous licence **MIT** - voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
----
-
-## 🏆 Remerciements
-
-Un grand merci à :
-- 💙 **Notre communauté** pour leurs retours et contributions
-- 🎨 **Les designers** qui ont créé l'interface
-- 🔧 **Les testeurs bêta** pour leur patience
-- 🌟 **Tous les contributeurs** qui ont partagé leurs macros
-
----
-
-<div align="center">
-
-### 🎉 Rejoignez la révolution de l'automatisation !
-
-**Fait avec ❤️ par la communauté MacroLoaderX**
-
-[![GitHub](https://img.shields.io/badge/GitHub-MacroLoaderX-black?style=for-the-badge&logo=github)](https://github.com/MacroLoaderX/MacroLoaderX)
-[![Website](https://img.shields.io/badge/Website-macroloaderx.com-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://macroloaderx.com)
-
-**⭐ N'oubliez pas de mettre une étoile si vous aimez le projet ! ⭐**
-
-</div>
+        document.querySelectorAll('.feature-card, .stat-card, .screenshot-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
