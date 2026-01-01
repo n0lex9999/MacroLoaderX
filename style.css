@@ -354,6 +354,24 @@ p strong {
     display: block;
 }
 
+.copy-button {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+    background-color: #66bb6a;
+}
+
 /* --- Footer et Support --- */
 footer {
     background-color: var(--surface-color);
