@@ -198,4 +198,35 @@ end
     </footer>
 
 </body>
+// Ajoutez un script comme ceci à la fin de votre index.html, juste avant </body>
+
+<script>
+    function copyCode() {
+        const codeBlock = document.querySelector('.code-block code');
+        const code = codeBlock.innerText;
+        navigator.clipboard.writeText(code).then(() => {
+            alert("Code Lua copié dans le presse-papiers !");
+        }).catch(err => {
+            console.error('Erreur lors de la copie: ', err);
+        });
+    }
+
+    // Ajout d'un bouton de copie au bloc de code
+    document.addEventListener('DOMContentLoaded', () => {
+        const codeBlock = document.querySelector('.code-block');
+        if (codeBlock) {
+            const copyButton = document.createElement('button');
+            copyButton.innerText = 'Copier';
+            copyButton.classList.add('copy-button');
+            copyButton.onclick = copyCode;
+            codeBlock.style.position = 'relative'; // Nécessaire pour positionner le bouton
+
+            const header = codeBlock.querySelector('.code-header');
+            if(header) {
+                header.appendChild(copyButton);
+            }
+        }
+    });
+</script>
+</style>
 </html>
