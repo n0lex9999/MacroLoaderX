@@ -353,7 +353,7 @@
         <div class="download-box">
             <h2>Commencer maintenant</h2>
             <p style="color: var(--text-muted); margin: 10px 0 25px; font-size:14px;">Rejoignez les utilisateurs intelligents.</p>
-            <a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/untagged-e76d7861168038356685/MacroLoaderX.zip" class="btn-primary">Télécharger v2.4.0</a>
+            <a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/download/MacroLoaderX.zip" class="btn-primary">Télécharger v2.4.0</a>
         </div>
     </section>
 
