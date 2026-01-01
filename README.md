@@ -14,16 +14,32 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #0a0a0a;
+            background: #050505;
             color: #e4e4e4;
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 60px 24px;
+            position: relative;
+            z-index: 1;
         }
 
         header {
@@ -34,19 +50,32 @@
         .logo {
             width: 120px;
             height: 120px;
-            border-radius: 24px;
+            border-radius: 28px;
             margin-bottom: 24px;
-            box-shadow: 0 8px 32px rgba(88, 166, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.25),
+                        0 0 0 1px rgba(139, 92, 246, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         h1 {
-            font-size: 48px;
-            font-weight: 600;
-            letter-spacing: -1px;
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: -2px;
             margin-bottom: 12px;
-            background: linear-gradient(135deg, #58a6ff, #8be9fd);
+            background: linear-gradient(135deg, #8b5cf6, #ec4899, #8b5cf6);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .tagline {
@@ -64,14 +93,21 @@
 
         .badge {
             padding: 6px 14px;
-            background: rgba(88, 166, 255, 0.1);
-            border: 1px solid rgba(88, 166, 255, 0.2);
+            background: rgba(139, 92, 246, 0.12);
+            border: 1px solid rgba(139, 92, 246, 0.25);
             border-radius: 20px;
             font-size: 13px;
-            color: #58a6ff;
+            color: #a78bfa;
             display: flex;
             align-items: center;
             gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: rgba(139, 92, 246, 0.18);
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-2px);
         }
 
         .badge svg {
@@ -96,7 +132,7 @@
         h2 svg {
             width: 28px;
             height: 28px;
-            color: #58a6ff;
+            color: #8b5cf6;
         }
 
         .grid {
@@ -107,26 +143,47 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            border-radius: 16px;
             padding: 24px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(236, 72, 153, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(88, 166, 255, 0.3);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+        }
+
+        .card:hover::before {
+            opacity: 1;
         }
 
         .card h3 {
             font-size: 16px;
             margin-bottom: 8px;
-            color: #58a6ff;
+            color: #a78bfa;
             display: flex;
             align-items: center;
             gap: 8px;
+            position: relative;
+            z-index: 1;
         }
 
         .card h3 svg {
@@ -137,24 +194,47 @@
         .card p {
             font-size: 14px;
             color: #8b949e;
+            position: relative;
+            z-index: 1;
         }
 
         .download-box {
-            background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(139, 233, 253, 0.1));
-            border: 1px solid rgba(88, 166, 255, 0.2);
-            border-radius: 16px;
-            padding: 32px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.15));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            padding: 40px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
         .version {
             display: inline-block;
-            padding: 4px 12px;
-            background: rgba(88, 166, 255, 0.15);
-            border-radius: 12px;
+            padding: 6px 16px;
+            background: rgba(139, 92, 246, 0.2);
+            border-radius: 16px;
             font-size: 14px;
-            color: #58a6ff;
+            color: #a78bfa;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(139, 92, 246, 0.3);
         }
 
         .btn {
