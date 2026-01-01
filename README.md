@@ -356,6 +356,14 @@
             <a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/download/MacroLoaderX.zip" class="btn-primary">Télécharger v2.4.0</a>
         </div>
     </section>
+    
+    <section id="download" class="container fade-in">
+        <div class="download-box">
+            <h2>Commencer maintenant</h2>
+            <p style="color: var(--text-muted); margin: 15px 0 45px; font-size:14px;">Rejoignez les utilisateurs intelligents.</p>
+            <a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/macroloader/MacroLoaderX.apk" class="btn-primary">Télécharger v2.4.0</a>
+        </div>
+    </section>
 
     <footer class="container">
         <p>&copy; 2026 MacroLoaderX. <span style="opacity:0.3">|</span> <span class="status-dot"></span>Tous les systèmes opérationnels</p>
