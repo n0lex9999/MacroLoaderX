@@ -352,7 +352,7 @@
     <section id="download" class="container fade-in">
         <div class="download-box">
             <h2>Commencer maintenant</h2>
-            <p style="color: var(--text-muted); margin: 10px 0 25px; font-size:14px;">Rejoignez les utilisateurs intelligents.</p>
+            <p style="color: var(--text-muted); margin: 10px 0 25px; font-size:14px;">>Windows 10/11.</p>
             <a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/download/MacroLoaderX.zip" class="btn-primary">Télécharger v2.4.0</a>
         </div>
     </section>
@@ -360,7 +360,7 @@
     <section id="download" class="container fade-in">
         <div class="download-box">
             <h2>Commencer maintenant</h2>
-            <p style="color: var(--text-muted); margin: 15px 0 45px; font-size:14px;">Rejoignez les utilisateurs intelligents.</p>
+            <p style="color: var(--text-muted); margin: 15px 0 35px; font-size:14px;">Android.</p>
             <a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/macroloader/MacroLoaderX.apk" class="btn-primary">Télécharger v2.4.0</a>
         </div>
     </section>
