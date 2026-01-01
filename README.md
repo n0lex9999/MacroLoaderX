@@ -2,7 +2,7 @@
 
 # MacroLoaderX
 
-<img src="https://files.catbox.moe/des41k.jpg" alt="MacroLoaderX Logo" width="200"/>
+<img src="https://files.catbox.moe/qz6o4n.jpg" alt="MacroLoaderX Logo" width="200"/>
 
 **L'outil macro le plus complet et facile à utiliser pour Roblox en 2026** 🎮
 
