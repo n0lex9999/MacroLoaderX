@@ -360,7 +360,7 @@
     <section id="download" class="container fade-in">
         <div class="download-box">
             <h2>Téléphone</h2>
-            <p style="color: var(--text-muted); margin: 15px 0 35px; font-size:14px;">>Android.</p>
+            <p style="color: var(--text-muted); margin: 15px 0 30px; font-size:14px;">>Android.</p>
             <a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/macroloader/MacroLoaderX.apk" class="btn-primary">Télécharger v2.4.0</a>
         </div>
     </section>
