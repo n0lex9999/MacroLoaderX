@@ -53,7 +53,7 @@ Tout est basé sur des scripts Lua que vous écrivez ou importez vous-même.
 
 **Exemple de macro en action**
 
-<img src="https://files.catbox.moe/n4ezs7.jpg" width="80%" />
+<img src="https://files.catbox.moe/in961k.jpg" width="80%" />
 
 </div>
 
