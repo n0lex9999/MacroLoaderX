@@ -49,11 +49,11 @@ Tout est basé sur des scripts Lua que vous écrivez ou importez vous-même.
 
 **Écran principal**
 
-<img src="https://via.placeholder.com/800x450/1a1a1a/ffffff?text=Interface+MacroLoaderX" width="80%" />
+<img src="https://files.catbox.moe/n4ezs7.jpg" width="80%" />
 
 **Exemple de macro en action**
 
-<img src="https://via.placeholder.com/800x450/1a1a1a/ffffff?text=Macro+en+cours+d%27ex%C3%A9cution" width="80%" />
+<img src="https://files.catbox.moe/n4ezs7.jpg" width="80%" />
 
 </div>
 
