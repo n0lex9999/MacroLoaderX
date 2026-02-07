@@ -245,109 +245,6 @@
             </div>
             <a href="#download" class="btn-sm">Télécharger</a>
         </div>
-    </nav>
-
-    <header class="container fade-in">
-        <div class="badge">Version 2.4.0 Live</div>
-        <h1>L'automatisation Roblox <br><span class="gradient-text">simplifiée.</span></h1>
-        <p class="subtitle">Automatisez vos actions répétitives sans injecteur. 100% externe, sûr, et conçu pour la performance.</p>
-        <div class="cta-group">
-            <a href="#download" class="btn-primary">Télécharger Gratuitement</a>
-            <a href="https://github.com/n0lex9999/MacroLoaderX" target="_blank" class="btn-secondary">Voir sur GitHub</a>
-        </div>
-    </header>
-
-    <div class="marquee-container fade-in">
-        <div class="marquee-track">
-            <div class="game-tag"><div class="game-dot"></div>Blox Fruits</div>
-            <div class="game-tag"><div class="game-dot"></div>Pet Simulator 99</div>
-            <div class="game-tag"><div class="game-dot"></div>Da Hood</div>
-            <div class="game-tag"><div class="game-dot"></div>Adopt Me</div>
-            <div class="game-tag"><div class="game-dot"></div>Anime Defenders</div>
-            <div class="game-tag"><div class="game-dot"></div>Brookhaven</div>
-            <div class="game-tag"><div class="game-dot"></div>BedWars</div>
-            <div class="game-tag"><div class="game-dot"></div>Blade Ball</div>
-            <div class="game-tag"><div class="game-dot"></div>Blox Fruits</div>
-            <div class="game-tag"><div class="game-dot"></div>Pet Simulator 99</div>
-            <div class="game-tag"><div class="game-dot"></div>Da Hood</div>
-            <div class="game-tag"><div class="game-dot"></div>Adopt Me</div>
-            <div class="game-tag"><div class="game-dot"></div>Anime Defenders</div>
-            <div class="game-tag"><div class="game-dot"></div>Brookhaven</div>
-            <div class="game-tag"><div class="game-dot"></div>BedWars</div>
-            <div class="game-tag"><div class="game-dot"></div>Blade Ball</div>
-        </div>
-    </div>
-
-    <section id="features" class="container features fade-in">
-        <div class="section-header">
-            <h2>L'avantage technologique</h2>
-            <p>Pourquoi utiliser MacroLoaderX plutôt qu'un autoclicker basique.</p>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon">🔒</div>
-                <h3>100% Externe</h3>
-                <p>Contrairement aux executeurs, MacroLoaderX n'injecte rien dans Roblox. Il simule simplement votre clavier et souris.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>Moteur Lua Léger</h3>
-                <p>Pas de bloatware. Un moteur d'exécution optimisé qui utilise moins de 1% de votre CPU en arrière-plan.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">📂</div>
-                <h3>Bibliothèque Cloud</h3>
-                <p>Téléchargez des macros créées par la communauté directement depuis l'interface. Plus de 300 scripts disponibles.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="preview-section fade-in">
-        <div class="container">
-            <div class="section-header" style="text-align: center;">
-                <h2>Codez ou importez</h2>
-                <p>Compatible avec la syntaxe Lua standard.</p>
-            </div>
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="dot" style="background:#ff5f56"></div>
-                    <div class="dot" style="background:#ffbd2e"></div>
-                    <div class="dot" style="background:#27c93f"></div>
-                </div>
-                <div class="terminal-body">
-                    <span class="c-kw">local</span> Player = game.Players.LocalPlayer<br>
-                    <span class="c-kw">local</span> Toggle = <span class="c-kw">true</span><br><br>
-                    <span class="c-kw">while</span> Toggle <span class="c-kw">do</span><br>
-                    &nbsp;&nbsp;<span class="c-kw">if</span> Player.Character <span class="c-kw">then</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;input.press(<span class="c-str">"Space"</span>)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="c-str">"Auto-Jump exécuté"</span>)<br>
-                    &nbsp;&nbsp;<span class="c-kw">end</span><br>
-                    &nbsp;&nbsp;wait(<span class="c-num">2.5</span>)<br>
-                    <span class="c-kw">end</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="container faq-section fade-in">
-        <div class="section-header" style="text-align:center">
-            <h2>Questions fréquentes</h2>
-        </div>
-        <div class="faq-grid">
-            <details>
-                <summary>Est-ce que je peux être banni ?</summary>
-                <div class="faq-content">Le risque est minime car MacroLoaderX n'injecte aucun code dans le jeu (contrairement à Synapse ou Krnl). Il agit comme un clavier virtuel. Cependant, utilisez-le avec bon sens.</div>
-            </details>
-            <details>
-                <summary>Comment charger un script ?</summary>
-                <div class="faq-content">Ouvrez le logiciel, cliquez sur "Load File" et sélectionnez votre fichier .lua. Vous pouvez aussi coller le code directement dans l'éditeur.</div>
-            </details>
-            <details>
-                <summary>Est-ce compatible Windows 11 ?</summary>
-                <div class="faq-content">Oui, le logiciel est optimisé pour Windows 10 et Windows 11. Une version MacOS est prévue pour 2027.</div>
-            </details>
-        </div>
-    </section>
 
     <section id="download" class="container fade-in">
         <div class="download-box">
@@ -372,11 +269,6 @@
             <a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/macroloader/MacroLoaderX.apk" class="btn-primary">Télécharger v2.4.0</a>
         </div>
     </section>
-
-    <footer class="container">
-        <p>&copy; 2026 MacroLoaderX. <span style="opacity:0.3">|</span> <span class="status-dot"></span>Tous les systèmes opérationnels</p>
-    </footer>
-
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
